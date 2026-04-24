@@ -1,0 +1,36 @@
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #d32f2f;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --bg-color: #fcfcfc;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b71c1c;
+    text-decoration: underline;
+}
+
+/* Melhorias de espaçamento na estrutura de duas colunas (split screen) */
+.site-content {
+    padding: 2rem;
+}
