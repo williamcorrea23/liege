@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Jost:wght@300;400&family=JetBrains+Mono&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=1.1" />
+<link rel="stylesheet" href="styles.css?v=1.2" />
 </head>
 <body>
 
@@ -32,72 +32,134 @@
 
 <section id="trabalhos">
   <h2 class="section-title">Trabalhos Selecionados</h2>
+  
+  <div class="gallery-filters" id="galleryFilters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="corpo">Série Corpo</button>
+    <button class="filter-btn" data-filter="obras">Obras</button>
+    <button class="filter-btn" data-filter="pesquisa">Pesquisa</button>
+  </div>
+
   <div class="gallery-grid" id="gallery">
-    <div class="gallery-item" data-src="img/teso.png" data-title="Teso" data-year="2023">
+    <!-- Série: Obras -->
+    <div class="gallery-item" data-category="obras" data-src="img/teso.png" data-title="Obra: Teso" data-year="2023">
       <img src="img/teso.png" alt="Teso" loading="lazy">
-      <div class="info">
-        <h3>Teso</h3>
-        <p>2023</p>
-      </div>
+      <div class="info"><h3>Teso</h3><p>2023</p></div>
     </div>
-    <div class="gallery-item" data-src="img/falo.png" data-title="Falo" data-year="2024">
+    <div class="gallery-item" data-category="obras" data-src="img/falo.png" data-title="Obra: Falo" data-year="2024">
       <img src="img/falo.png" alt="Falo" loading="lazy">
-      <div class="info">
-        <h3>Falo</h3>
-        <p>2024</p>
-      </div>
+      <div class="info"><h3>Falo</h3><p>2024</p></div>
     </div>
-    <div class="gallery-item" data-src="img/aparicao.png" data-title="Aparição" data-year="2024">
-      <img src="img/aparicao.png" alt="Aparição" loading="lazy">
-      <div class="info">
-        <h3>Aparição</h3>
-        <p>2024</p>
-      </div>
-    </div>
-    <div class="gallery-item" data-src="img/folia.png" data-title="Folia" data-year="2024">
+    <div class="gallery-item" data-category="obras" data-src="img/folia.png" data-title="Obra: Folia" data-year="2024">
       <img src="img/folia.png" alt="Folia" loading="lazy">
-      <div class="info">
-        <h3>Folia</h3>
-        <p>2024</p>
-      </div>
+      <div class="info"><h3>Folia</h3><p>2024</p></div>
     </div>
-    <div class="gallery-item" data-src="img/ponteiro.jpg" data-title="Ponteiro" data-year="2023">
+    <div class="gallery-item" data-category="obras" data-src="img/ponteiro.jpg" data-title="Obra: Ponteiro" data-year="2023">
       <img src="img/ponteiro.jpg" alt="Ponteiro" loading="lazy">
-      <div class="info">
-        <h3>Ponteiro</h3>
-        <p>2023</p>
-      </div>
+      <div class="info"><h3>Ponteiro</h3><p>2023</p></div>
     </div>
-    <div class="gallery-item" data-src="img/retrato.jpg" data-title="Retrato" data-year="2025">
-      <img src="img/retrato.jpg" alt="Retrato" loading="lazy">
-      <div class="info">
-        <h3>Retrato</h3>
-        <p>2025</p>
-      </div>
-    </div>
-    <div class="gallery-item" data-src="img/ritual-1.png" data-title="Ritual I" data-year="2025">
+    <div class="gallery-item" data-category="obras" data-src="img/ritual-1.png" data-title="Série Ritual I" data-year="2025">
       <img src="img/ritual-1.png" alt="Ritual I" loading="lazy">
-      <div class="info">
-        <h3>Ritual I</h3>
-        <p>2025</p>
-      </div>
+      <div class="info"><h3>Ritual I</h3><p>2025</p></div>
     </div>
-    <div class="gallery-item" data-src="img/ritual-2.png" data-title="Ritual II" data-year="2025">
+    <div class="gallery-item" data-category="obras" data-src="img/ritual-2.png" data-title="Série Ritual II" data-year="2025">
       <img src="img/ritual-2.png" alt="Ritual II" loading="lazy">
-      <div class="info">
-        <h3>Ritual II</h3>
-        <p>2025</p>
-      </div>
+      <div class="info"><h3>Ritual II</h3><p>2025</p></div>
+    </div>
+    <div class="gallery-item" data-category="obras" data-src="img/ritual-3.png" data-title="Série Ritual III" data-year="2025">
+      <img src="img/ritual-3.png" alt="Ritual III" loading="lazy">
+      <div class="info"><h3>Ritual III</h3><p>2025</p></div>
+    </div>
+    <div class="gallery-item" data-category="obras" data-src="img/aparicao-folia.jpg" data-title="Aparição-Folia" data-year="2024">
+      <img src="img/aparicao-folia.jpg" alt="Aparição Folia" loading="lazy">
+      <div class="info"><h3>Aparição Folia</h3><p>2024</p></div>
+    </div>
+
+    <!-- Série: Corpo em Órbita -->
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-1.png" data-title="Série Corpo I" data-year="2024">
+      <img src="img/corpo-1.png" alt="Corpo I" loading="lazy">
+      <div class="info"><h3>Corpo I</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-2.png" data-title="Série Corpo II" data-year="2024">
+      <img src="img/corpo-2.png" alt="Corpo II" loading="lazy">
+      <div class="info"><h3>Corpo II</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-3.png" data-title="Série Corpo III" data-year="2024">
+      <img src="img/corpo-3.png" alt="Corpo III" loading="lazy">
+      <div class="info"><h3>Corpo III</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-4.png" data-title="Série Corpo IV" data-year="2024">
+      <img src="img/corpo-4.png" alt="Corpo IV" loading="lazy">
+      <div class="info"><h3>Corpo IV</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-5.png" data-title="Série Corpo V" data-year="2024">
+      <img src="img/corpo-5.png" alt="Corpo V" loading="lazy">
+      <div class="info"><h3>Corpo V</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-6.png" data-title="Série Corpo VI" data-year="2024">
+      <img src="img/corpo-6.png" alt="Corpo VI" loading="lazy">
+      <div class="info"><h3>Corpo VI</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-7.png" data-title="Série Corpo VII" data-year="2024">
+      <img src="img/corpo-7.png" alt="Corpo VII" loading="lazy">
+      <div class="info"><h3>Corpo VII</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="corpo" data-src="img/corpo-8.png" data-title="Série Corpo VIII" data-year="2024">
+      <img src="img/corpo-8.png" alt="Corpo VIII" loading="lazy">
+      <div class="info"><h3>Corpo VIII</h3><p>2024</p></div>
+    </div>
+
+    <!-- Série: Pesquisa & Processo -->
+    <div class="gallery-item" data-category="pesquisa" data-src="img/aparicao.png" data-title="Pesquisa: Aparição como método" data-year="2024">
+      <img src="img/aparicao.png" alt="Aparição" loading="lazy">
+      <div class="info"><h3>Aparição</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/extra-1.png" data-title="Estudo de Luz e Sombra" data-year="2024">
+      <img src="img/extra-1.png" alt="Extra I" loading="lazy">
+      <div class="info"><h3>Extra I</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/publicacao.png" data-title="Registro de Publicação" data-year="2024">
+      <img src="img/publicacao.png" alt="Publicação" loading="lazy">
+      <div class="info"><h3>Publicação</h3><p>2024</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/exposicao.jpg" data-title="Registro de Exposição" data-year="2025">
+      <img src="img/exposicao.jpg" alt="Exposição" loading="lazy">
+      <div class="info"><h3>Exposição</h3><p>2025</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/studio.jpg" data-title="Processo em Studio" data-year="2024">
+      <img src="img/studio.jpg" alt="Studio" loading="lazy">
+      <div class="info"><h3>Studio</h3><p>2024</p></div>
+    </div>
+
+    <!-- Retratos e Miscelânea -->
+    <div class="gallery-item" data-category="pesquisa" data-src="img/retrato.jpg" data-title="Retrato I" data-year="2025">
+      <img src="img/retrato.jpg" alt="Retrato" loading="lazy">
+      <div class="info"><h3>Retrato I</h3><p>2025</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/retrato2.jpg" data-title="Retrato II" data-year="2025">
+      <img src="img/retrato2.jpg" alt="Retrato II" loading="lazy">
+      <div class="info"><h3>Retrato II</h3><p>2025</p></div>
+    </div>
+    <div class="gallery-item" data-category="pesquisa" data-src="img/portfolio-cover.png" data-title="Capa do Portfólio" data-year="2024">
+      <img src="img/portfolio-cover.png" alt="Capa" loading="lazy">
+      <div class="info"><h3>Capa</h3><p>2024</p></div>
     </div>
   </div>
 </section>
 
 <section id="sobre">
-  <h2 class="section-title">Sobre</h2>
-  <div class="text-content">
-    <p>Liège Santos pesquisa a aparição como método em artes, atravessando performance, escrita e imagem. Sua obra investiga a gramática afro-brasileira de presença, escutando onde o sagrado se manifesta no cotidiano.</p>
-    <br>
-    <p>Atualmente baseada no Rio de Janeiro, desenvolve projetos que unem a prática artística à pesquisa acadêmica, focando na memória do corpo e nas poéticas do terreiro.</p>
+  <div class="sobre-container">
+    <div class="sobre-img">
+      <img src="img/portfolio-cover.png" alt="Liège Santos — Portfólio Cover" loading="lazy">
+    </div>
+    <div class="sobre-text">
+      <h2 class="section-title">Sobre</h2>
+      <div class="text-content">
+        <p>Liège Santos pesquisa a aparição como método em artes, atravessando performance, escrita e imagem. Sua obra investiga a gramática afro-brasileira de presença, escutando onde o sagrado se manifesta no cotidiano.</p>
+        <br>
+        <p>Atualmente baseada no Rio de Janeiro, desenvolve projetos que unem a prática artística à pesquisa acadêmica, focando na memória do corpo e nas poéticas do terreiro.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -154,7 +216,7 @@
   if (savedTheme) body.setAttribute('data-theme', savedTheme);
 
   // Gallery Logic
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  let galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
   const overlay = document.getElementById('overlay');
   const overlayImg = document.getElementById('overlayImg');
   const overlayTitle = document.getElementById('overlayTitle');
@@ -164,10 +226,16 @@
   const nextBtn = document.getElementById('nextBtn');
   
   let currentIndex = 0;
+  let visibleItems = galleryItems;
+
+  function updateVisibleItems() {
+    visibleItems = galleryItems.filter(item => !item.classList.contains('hidden'));
+  }
 
   function openOverlay(index) {
     currentIndex = index;
-    const item = galleryItems[index];
+    const item = visibleItems[index];
+    if (!item) return;
     
     // Smooth transition for image swap
     overlayImg.style.opacity = '0';
@@ -191,17 +259,52 @@
   }
 
   function nextImg() {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
+    currentIndex = (currentIndex + 1) % visibleItems.length;
     openOverlay(currentIndex);
   }
 
   function prevImg() {
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
     openOverlay(currentIndex);
   }
 
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => openOverlay(index));
+  function setupGalleryListeners() {
+    galleryItems.forEach((item) => {
+      // Remove old listener if any (though here we just add them once)
+      item.addEventListener('click', () => {
+        const currentVisibleIndex = visibleItems.indexOf(item);
+        if (currentVisibleIndex !== -1) {
+          openOverlay(currentVisibleIndex);
+        }
+      });
+    });
+  }
+
+  setupGalleryListeners();
+  updateVisibleItems();
+
+  // Filter Logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Filter items
+      galleryItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      
+      updateVisibleItems();
+    });
   });
 
   closeOverlay.addEventListener('click', closeOverlayFunc);
