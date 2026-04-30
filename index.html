@@ -205,7 +205,7 @@
     <button class="overlay-btn" id="prevBtn">&larr;</button>
     <button class="overlay-btn" id="nextBtn">&rarr;</button>
   </div>
-  <div class="info" style="position: absolute; bottom: 40px; text-align: center; color: var(--fg);">
+  <div class="overlay-info">
     <h3 id="overlayTitle"></h3>
     <p id="overlayYear"></p>
   </div>
@@ -227,7 +227,7 @@
   if (savedTheme) body.setAttribute('data-theme', savedTheme);
 
   // Sidebar Active State on Scroll
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('section, footer');
   const navLinks = document.querySelectorAll('.nav-items a');
 
   window.addEventListener('scroll', () => {
@@ -235,15 +235,30 @@
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
-      if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+      if (pageYOffset >= (sectionTop - 100)) {
         current = section.getAttribute('id');
       }
     });
 
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
+      if (link.getAttribute('href') === `#${current}`) {
         link.classList.add('active');
+      }
+    });
+  });
+
+  // Smooth Scroll for Nav Links
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop,
+          behavior: 'smooth'
+        });
       }
     });
   });

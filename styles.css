@@ -297,7 +297,7 @@ section {
   }
 }
 
-/* Fullscreen Overlay - Keep but refine */
+/* Fullscreen Overlay - Refined for Proportions */
 .overlay {
   position: fixed;
   inset: 0;
@@ -307,22 +307,121 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--space-md);
+  padding: 20px;
 }
 
 .overlay.active { display: flex; }
 
+.overlay-img-container {
+  width: 100%;
+  height: 80vh; /* Fixed height to prevent overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
 .overlay-img {
-  max-width: 85%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Crucial: ensures full image visibility without cropping */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, opacity 0.4s ease;
+  cursor: zoom-in;
+  opacity: 0;
+}
+
+.overlay-img.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
   object-fit: contain;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
 }
 
 .overlay-close {
   position: absolute;
-  top: 40px; right: 40px;
-  font-size: 40px;
+  top: 30px; 
+  right: 30px;
+  font-size: 32px;
   cursor: pointer;
-  background: none; border: none; color: var(--fg);
+  background: none; 
+  border: none; 
+  color: var(--fg);
+  z-index: 3100;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.overlay-close:hover {
+  transform: rotate(90deg);
+}
+
+.overlay-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  pointer-events: none;
+  z-index: 3050;
+}
+
+.overlay-btn {
+  background: rgba(var(--bg), 0.5);
+  border: none;
+  color: var(--fg);
+  font-size: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0.3;
+  transition: var(--transition);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.overlay-btn:hover {
+  opacity: 1;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.overlay-info {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--fg);
+}
+
+.overlay-info h3 {
+  font-family: var(--f-display);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.overlay-info p {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .overlay-nav {
+    padding: 0 10px;
+  }
+  .overlay-img {
+    max-width: 95%;
+  }
 }
