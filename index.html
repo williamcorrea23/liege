@@ -6,41 +6,59 @@
 <title>Liège Santos — Fotografia & Performatividade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Jost:wght@300;400&family=JetBrains+Mono&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=1.2" />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=1.3" />
 </head>
 <body>
 
-<nav class="nav">
-  <a href="#" class="brand">Liège Santos</a>
-  <ul class="nav-items">
-    <li><a href="#trabalhos">Trabalhos</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo escuro">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
-</nav>
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="symbol" style="margin-bottom: 30px; opacity: 0.8;">
+        <!-- Sankofa Symbol (Simplified SVG) -->
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 10C35 10 20 20 15 35C10 50 15 65 30 75C45 85 65 85 80 75C95 65 95 45 85 30C75 15 55 10 50 10ZM50 20C65 20 75 25 80 35C85 45 85 55 75 65C65 75 50 75 40 65C30 55 30 45 35 35C40 25 45 20 50 20Z" opacity="0.2"/>
+          <circle cx="50" cy="50" r="5" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <h1 class="brand">Liège Santos</h1>
+      <p class="tagline">Arte · Pensamento · Performatividade</p>
+      
+      <nav>
+        <ul class="nav-items">
+          <li><a href="#trabalhos" class="active">Trabalhos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
 
-<header class="hero">
-  <h1 class="hero-title">Liège Santos</h1>
-  <p class="hero-sub">Fotografia, performance e a pesquisa da aparição como método.</p>
-</header>
+    <div class="sidebar-bottom">
+      <div class="sidebar-footer">
+        <p>© 2026 Liège Santos</p>
+        <p>Rio de Janeiro, Brasil</p>
+      </div>
+      
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo escuro">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </aside>
 
-<section id="trabalhos">
-  <h2 class="section-title">Trabalhos Selecionados</h2>
-  
-  <div class="gallery-filters" id="galleryFilters">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="corpo">Série Corpo</button>
-    <button class="filter-btn" data-filter="obras">Obras</button>
-    <button class="filter-btn" data-filter="pesquisa">Pesquisa</button>
-  </div>
+  <main class="main-content">
+    <section id="trabalhos">
+      <h2 class="section-title">Trabalhos Selecionados</h2>
+      
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="corpo">Série Corpo</button>
+        <button class="filter-btn" data-filter="obras">Obras</button>
+        <button class="filter-btn" data-filter="pesquisa">Pesquisa</button>
+      </div>
 
-  <div class="gallery-grid" id="gallery">
+      <div class="gallery-grid" id="gallery">
     <!-- Série: Obras -->
     <div class="gallery-item" data-category="obras" data-src="img/teso.png" data-title="Obra: Teso" data-year="2023">
       <img src="img/teso.png" alt="Teso" loading="lazy">
@@ -163,27 +181,20 @@
   </div>
 </section>
 
-<footer id="contato">
-  <div class="footer-info">
-    <h4>Liège Santos</h4>
-    <p>Arte · Pensamento · Performatividade</p>
-  </div>
-  <div class="footer-links">
-    <div class="footer-col">
-      <h5>Contato</h5>
-      <ul>
-        <li><a href="mailto:liegesantos@gmail.com">E-mail</a></li>
-        <li><a href="https://www.instagram.com/liege_santos">Instagram</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Localização</h5>
-      <ul>
-        <li>Rio de Janeiro, Brasil</li>
-      </ul>
-    </div>
-  </div>
-</footer>
+    <footer id="contato">
+      <h2 class="section-title">Contato</h2>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Conexões</h5>
+          <ul>
+            <li><a href="mailto:liegesantos@gmail.com">E-mail</a></li>
+            <li><a href="https://www.instagram.com/liege_santos">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div> <!-- End app-container -->
 
 <div class="overlay" id="overlay">
   <button class="overlay-close" id="closeOverlay">&times;</button>
@@ -214,6 +225,28 @@
   // Load saved theme
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) body.setAttribute('data-theme', savedTheme);
+
+  // Sidebar Active State on Scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-items a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
 
   // Gallery Logic
   let galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
