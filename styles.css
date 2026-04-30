@@ -128,23 +128,71 @@ section {
 /* ============================================
    Gallery
    ============================================ */
+.gallery-filters {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--fg-muted);
+  font-family: var(--f-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: var(--transition);
+  opacity: 0.5;
+}
+
+.filter-btn:hover {
+  opacity: 1;
+  color: var(--fg);
+}
+
+.filter-btn.active {
+  opacity: 1;
+  color: var(--fg);
+  border-bottom-color: var(--fg);
+}
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: var(--space-md);
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  background: var(--bg);
+  background: var(--border);
+  aspect-ratio: 1 / 1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeIn 0.8s ease backwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-item.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -255,6 +303,32 @@ section {
   margin-bottom: var(--space-md);
 }
 
+.sobre-container {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.sobre-img {
+  flex: 1;
+  max-width: 500px;
+}
+
+.sobre-img img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: var(--transition);
+}
+
+.sobre-img:hover img {
+  filter: grayscale(0%);
+}
+
+.sobre-text {
+  flex: 1;
+}
+
 .text-content {
   max-width: 800px;
   font-size: 18px;
@@ -314,6 +388,16 @@ footer {
   
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-img {
+    max-width: 100%;
+    margin-bottom: var(--space-md);
   }
   
   footer {
