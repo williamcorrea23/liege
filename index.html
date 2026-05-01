@@ -3,376 +3,515 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Liège Santos — Fotografia & Performatividade</title>
+<title>Liège Santos — Arte, pensamento, performatividade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=1.4" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* === FOTOS UNIFORMES === */
+  .obra-grid {
+    display: grid !important;
+    gap: 24px !important;
+    row-gap: 32px !important;
+  }
+  .obra-grid.cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .obra-grid.cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .obra-grid.cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  @media (max-width: 800px) {
+    .obra-grid.cols-3,
+    .obra-grid.cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  .obra-grid > img {
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+    display: block !important;
+    cursor: pointer !important;
+    background: #ede7dd;
+    margin: 0 !important;
+  }
+  .obra-img {
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+  .obra-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    cursor: pointer !important;
+  }
+  /* Quando obra tem só 1 foto, mostrar grande */
+  .obra-body > .obra-img {
+    max-width: 600px;
+  }
+</style>
 </head>
 <body>
 
-<div class="app-container">
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="symbol" style="margin-bottom: 30px; opacity: 0.8;">
-        <!-- Sankofa Symbol (Simplified SVG) -->
-        <svg width="40" height="40" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50 10C35 10 20 20 15 35C10 50 15 65 30 75C45 85 65 85 80 75C95 65 95 45 85 30C75 15 55 10 50 10ZM50 20C65 20 75 25 80 35C85 45 85 55 75 65C65 75 50 75 40 65C30 55 30 45 35 35C40 25 45 20 50 20Z" opacity="0.2"/>
-          <circle cx="50" cy="50" r="5" fill="var(--accent)"/>
-        </svg>
-      </div>
-      <h1 class="brand">Liège Santos</h1>
-      <p class="tagline">Arte · Pensamento · Performatividade</p>
-      
-      <nav>
-        <ul class="nav-items">
-          <li><a href="#trabalhos" class="active">Trabalhos</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="sidebar-bottom">
-      <div class="sidebar-footer">
-        <p>© 2026 Liège Santos</p>
-        <p>Rio de Janeiro, Brasil</p>
-      </div>
-      
-      <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo escuro">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-    </div>
-  </aside>
-
-  <main class="main-content">
-    <section id="trabalhos">
-      <h2 class="section-title">Trabalhos Selecionados</h2>
-      
-      <div class="gallery-filters" id="galleryFilters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="corpo">Série Corpo</button>
-        <button class="filter-btn" data-filter="obras">Obras</button>
-        <button class="filter-btn" data-filter="pesquisa">Pesquisa</button>
-      </div>
-
-      <div class="gallery-grid" id="gallery">
-    <!-- Série: Obras -->
-    <div class="gallery-item" data-category="obras" data-src="img/teso.png" data-title="Obra: Teso" data-year="2023">
-      <img src="img/teso.png" alt="Teso" loading="lazy">
-      <div class="info"><h3>Teso</h3><p>2023</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/falo.png" data-title="Obra: Falo" data-year="2024">
-      <img src="img/falo.png" alt="Falo" loading="lazy">
-      <div class="info"><h3>Falo</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/folia.png" data-title="Obra: Folia" data-year="2024">
-      <img src="img/folia.png" alt="Folia" loading="lazy">
-      <div class="info"><h3>Folia</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/ponteiro.jpg" data-title="Obra: Ponteiro" data-year="2023">
-      <img src="img/ponteiro.jpg" alt="Ponteiro" loading="lazy">
-      <div class="info"><h3>Ponteiro</h3><p>2023</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/ritual-1.png" data-title="Série Ritual I" data-year="2025">
-      <img src="img/ritual-1.png" alt="Ritual I" loading="lazy">
-      <div class="info"><h3>Ritual I</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/ritual-2.png" data-title="Série Ritual II" data-year="2025">
-      <img src="img/ritual-2.png" alt="Ritual II" loading="lazy">
-      <div class="info"><h3>Ritual II</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/ritual-3.png" data-title="Série Ritual III" data-year="2025">
-      <img src="img/ritual-3.png" alt="Ritual III" loading="lazy">
-      <div class="info"><h3>Ritual III</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="obras" data-src="img/aparicao-folia.jpg" data-title="Aparição-Folia" data-year="2024">
-      <img src="img/aparicao-folia.jpg" alt="Aparição Folia" loading="lazy">
-      <div class="info"><h3>Aparição Folia</h3><p>2024</p></div>
-    </div>
-
-    <!-- Série: Corpo em Órbita -->
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-1.png" data-title="Série Corpo I" data-year="2024">
-      <img src="img/corpo-1.png" alt="Corpo I" loading="lazy">
-      <div class="info"><h3>Corpo I</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-2.png" data-title="Série Corpo II" data-year="2024">
-      <img src="img/corpo-2.png" alt="Corpo II" loading="lazy">
-      <div class="info"><h3>Corpo II</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-3.png" data-title="Série Corpo III" data-year="2024">
-      <img src="img/corpo-3.png" alt="Corpo III" loading="lazy">
-      <div class="info"><h3>Corpo III</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-4.png" data-title="Série Corpo IV" data-year="2024">
-      <img src="img/corpo-4.png" alt="Corpo IV" loading="lazy">
-      <div class="info"><h3>Corpo IV</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-5.png" data-title="Série Corpo V" data-year="2024">
-      <img src="img/corpo-5.png" alt="Corpo V" loading="lazy">
-      <div class="info"><h3>Corpo V</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-6.png" data-title="Série Corpo VI" data-year="2024">
-      <img src="img/corpo-6.png" alt="Corpo VI" loading="lazy">
-      <div class="info"><h3>Corpo VI</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-7.png" data-title="Série Corpo VII" data-year="2024">
-      <img src="img/corpo-7.png" alt="Corpo VII" loading="lazy">
-      <div class="info"><h3>Corpo VII</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="corpo" data-src="img/corpo-8.png" data-title="Série Corpo VIII" data-year="2024">
-      <img src="img/corpo-8.png" alt="Corpo VIII" loading="lazy">
-      <div class="info"><h3>Corpo VIII</h3><p>2024</p></div>
-    </div>
-
-    <!-- Série: Pesquisa & Processo -->
-    <div class="gallery-item" data-category="pesquisa" data-src="img/aparicao.png" data-title="Pesquisa: Aparição como método" data-year="2024">
-      <img src="img/aparicao.png" alt="Aparição" loading="lazy">
-      <div class="info"><h3>Aparição</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/extra-1.png" data-title="Estudo de Luz e Sombra" data-year="2024">
-      <img src="img/extra-1.png" alt="Extra I" loading="lazy">
-      <div class="info"><h3>Extra I</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/publicacao.png" data-title="Registro de Publicação" data-year="2024">
-      <img src="img/publicacao.png" alt="Publicação" loading="lazy">
-      <div class="info"><h3>Publicação</h3><p>2024</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/exposicao.jpg" data-title="Registro de Exposição" data-year="2025">
-      <img src="img/exposicao.jpg" alt="Exposição" loading="lazy">
-      <div class="info"><h3>Exposição</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/studio.jpg" data-title="Processo em Studio" data-year="2024">
-      <img src="img/studio.jpg" alt="Studio" loading="lazy">
-      <div class="info"><h3>Studio</h3><p>2024</p></div>
-    </div>
-
-    <!-- Retratos e Miscelânea -->
-    <div class="gallery-item" data-category="pesquisa" data-src="img/retrato.jpg" data-title="Retrato I" data-year="2025">
-      <img src="img/retrato.jpg" alt="Retrato" loading="lazy">
-      <div class="info"><h3>Retrato I</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/retrato2.jpg" data-title="Retrato II" data-year="2025">
-      <img src="img/retrato2.jpg" alt="Retrato II" loading="lazy">
-      <div class="info"><h3>Retrato II</h3><p>2025</p></div>
-    </div>
-    <div class="gallery-item" data-category="pesquisa" data-src="img/portfolio-cover.png" data-title="Capa do Portfólio" data-year="2024">
-      <img src="img/portfolio-cover.png" alt="Capa" loading="lazy">
-      <div class="info"><h3>Capa</h3><p>2024</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre">
-  <div class="sobre-container">
-    <div class="sobre-img">
-      <img src="img/portfolio-cover.png" alt="Liège Santos — Portfólio Cover" loading="lazy">
-    </div>
-    <div class="sobre-text">
-      <h2 class="section-title">Sobre</h2>
-      <div class="text-content">
-        <p>Liège Santos pesquisa a aparição como método em artes, atravessando performance, escrita e imagem. Sua obra investiga a gramática afro-brasileira de presença, escutando onde o sagrado se manifesta no cotidiano.</p>
-        <br>
-        <p>Atualmente baseada no Rio de Janeiro, desenvolve projetos que unem a prática artística à pesquisa acadêmica, focando na memória do corpo e nas poéticas do terreiro.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <footer id="contato">
-      <h2 class="section-title">Contato</h2>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h5>Conexões</h5>
-          <ul>
-            <li><a href="mailto:liegesantos@gmail.com">E-mail</a></li>
-            <li><a href="https://www.instagram.com/liege_santos">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  </main>
-</div> <!-- End app-container -->
-
-<div class="overlay" id="overlay">
-  <button class="overlay-close" id="closeOverlay">&times;</button>
-  <div class="overlay-img-container">
-    <img src="" alt="" class="overlay-img" id="overlayImg">
-  </div>
-  <div class="overlay-nav">
-    <button class="overlay-btn" id="prevBtn">&larr;</button>
-    <button class="overlay-btn" id="nextBtn">&rarr;</button>
-  </div>
-  <div class="overlay-info">
-    <h3 id="overlayTitle"></h3>
-    <p id="overlayYear"></p>
+<!-- Photo Modal -->
+<div class="photo-modal" id="photoModal">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img id="modalImg" src="" alt="" />
+    <div class="modal-caption" id="modalCaption"></div>
   </div>
 </div>
 
+<!-- Nav -->
+<nav class="nav" id="topNav" style="font-weight: 400; height: 10.8px">
+  <a href="#top" class="brand"><em>Liège</em> Santos</a>
+  <ul class="nav-items" style="font-size: 20px; font-weight: 300">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#obras">Obras</a></li>
+    <li><a href="#arquivo">Arquivo</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-mobile-btn" id="navMobileBtn">Menu</button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="mobileMenuClose">Fechar</button>
+  <a href="#sobre">Sobre</a>
+  <a href="#obras">Obras</a>
+  <a href="#arquivo">Arquivo</a>
+  <a href="#contato">Contato</a>
+</div>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-top">
+    <div class="mono">Liège Santos · MMXXVI</div>
+    <div class="mono">Rio de Janeiro</div>
+  </div>
+  <div class="hero-mid">
+    <h1 class="hero-title" style="font-size: 100.233px">Liège<br><em>Santos</em></h1>
+    <p class="hero-statement">Pesquiso em gesto e escrita uma <em>aparição</em> como método — o modo pelo qual um corpo se faz presente no tempo.</p>
+  </div>
+  <div class="hero-bottom">
+    <div></div>
+    <div class="hero-meta">
+      <div class="label">Atuação</div>
+      <div class="value">Performance · Pesquisa</div>
+    </div>
+    <div class="hero-meta">
+      <div class="label">Origem</div>
+      <div class="value">Brasil</div>
+    </div>
+    <div class="hero-meta">
+      <div class="label">Ano</div>
+      <div class="value">MMXXVI</div>
+    </div>
+  </div>
+</header>
+
+<!-- Sobre -->
+<section class="section" id="sobre">
+  <div class="section-head">
+    <div class="section-num">§ Sobre</div>
+    <h2 class="section-title">Um corpo que <em>aparece.</em></h2>
+  </div>
+  <div class="sobre-grid">
+    <div class="sobre-portrait reveal">
+      <img src="img/retrato.jpg" alt="Liège Santos · Retrato 2025" />
+      <div class="sobre-caption mono">
+        <span>Retrato</span>
+        <span>2025</span>
+      </div>
+    </div>
+    <div class="sobre-text reveal">
+      <p>Minha pesquisa em artes toma a <em>aparição</em> como método: um modo de habitar a dobra entre o que se ensaia e o que se encarna, entre o que se enseja e o que se realiza.</p>
+      <p>A obra atravessa performance, escrita e imagem — rodopiando ao redor das memórias de um corpo negro em travessia, atravessado por ritmo, chuva, e pelas faíscas que brotam dos encontros.</p>
+      <p>Investigo gestos e palavras — <em>o teso, a folia, o falo, o ponteiro</em> — que guardam em si uma gramática afro-brasileira de presença. A arte que faço não ilustra o sagrado; ela habita o lugar onde o sagrado já pulsa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Obras -->
+<section class="section" id="obras">
+  <div class="section-head">
+    <div class="section-num">§ Obras</div>
+    <h2 class="section-title">Travessias <em>em cronologia.</em></h2>
+  </div>
+
+  <div class="obras-list">
+
+    <!-- 2022 — Corpo em série -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">01–08</div>
+        <div class="obra-kind">Série fotográfica</div>
+        <div class="obra-year">2022</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Corpo</em> em oito tempos</h3>
+        <p class="obra-desc">Uma mesma pose vista oito vezes. Cada imagem marca um batimento — como se o corpo se riscasse no tempo através do disparo da câmera. Ritmo e repetição como modo de habitar o visível.</p>
+        <div class="obra-grid cols-4">
+          <img src="img/corpo-1.png" alt="Corpo · Tempo 1" />
+          <img src="img/corpo-2.png" alt="Corpo · Tempo 2" />
+          <img src="img/corpo-3.png" alt="Corpo · Tempo 3" />
+          <img src="img/corpo-4.png" alt="Corpo · Tempo 4" />
+          <img src="img/corpo-5.png" alt="Corpo · Tempo 5" />
+          <img src="img/corpo-6.png" alt="Corpo · Tempo 6" />
+          <img src="img/corpo-7.png" alt="Corpo · Tempo 7" />
+          <img src="img/corpo-8.png" alt="Corpo · Tempo 8" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2022–24 — Aparição como método -->
+    <article class="obra flip reveal">
+      <div class="obra-meta">
+        <div class="obra-num">09</div>
+        <div class="obra-kind">Livro · Ensaio</div>
+        <div class="obra-year">2022–2024</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Aparição</em> como método</h3>
+        <p class="obra-desc">Escrita sobre uma metodologia da aparição na pesquisa em artes. Como a presença se torna pesquisa. Como a pesquisa se encarna. Publicado em múltiplos momentos, em formatos que variam mas guardam o mesmo gesto.</p>
+        <div class="obra-grid cols-2">
+          <img src="img/extra-1.png" alt="Aparição · Primeira versão" />
+          <img src="img/publicacao.png" alt="Aparição · Segunda edição" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2023 — Ponteiro -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">10</div>
+        <div class="obra-kind">Fotografia</div>
+        <div class="obra-year">2023</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Ponteiro</em> — o gesto que marca</h3>
+        <p class="obra-desc">O dedo que aponta, que toca, que risca. Uma série em ritmo: o mesmo ponto batido três vezes, deixando rastro. Onde toca, deixa marca. O corpo como ferramenta de inscrição.</p>
+        <div class="obra-img tall">
+          <img src="img/ponteiro.jpg" alt="Ponteiro · Série 2023" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2023 — Estudos -->
+    <article class="obra flip reveal">
+      <div class="obra-meta">
+        <div class="obra-num">11</div>
+        <div class="obra-kind">Estudo preparatório</div>
+        <div class="obra-year">2023</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title">Caderno de <em>ensaios</em></h3>
+        <p class="obra-desc">Antes das grandes travessias, o corpo ainda hesita. Aqui, as formas ainda estão em negociação, a presença ainda se busca. Rascunhos que guardam o processo.</p>
+        <div class="obra-img">
+          <img src="img/portfolio-cover.png" alt="Estudos · Preparação" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 — Teso -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">12</div>
+        <div class="obra-kind">Performance · Vídeo</div>
+        <div class="obra-year">2024</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Teso</em> — a tensão antes da fala</h3>
+        <p class="obra-desc">O corpo em prontidão. Aquele instante suspenso antes do salto, antes da entrega, antes da palavra encontrar boca. A câmera fixa em um gesto contido que pulsa.</p>
+        <div class="obra-img tall">
+          <img src="img/teso.png" alt="Teso · Performance 2024" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 — Falo -->
+    <article class="obra flip reveal">
+      <div class="obra-meta">
+        <div class="obra-num">13</div>
+        <div class="obra-kind">Instalação</div>
+        <div class="obra-year">2024</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Falo</em> — o que ergue e o que cai</h3>
+        <p class="obra-desc">Estrutura ritual desmontada. A palavra como pilar. A palavra como queda. O que fala é também o que tomba. Uma intervenção sobre presença, autoridade, e fragilidade.</p>
+        <div class="obra-img tall">
+          <img src="img/falo.png" alt="Falo · Instalação 2024" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 — Folia -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">14–16</div>
+        <div class="obra-kind">Performance · Fotografia</div>
+        <div class="obra-year">2024</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Folia</em> — o véu que aparece</h3>
+        <p class="obra-desc">O tecido que voa. O rosto que se anuncia atrás do pano. Folia é o nome da festa que dança porque se cobre, e se cobre para poder dançar. Três instantes de uma mesma revelação.</p>
+        <div class="obra-grid cols-3">
+          <img src="img/folia.png" alt="Folia · Instante um" />
+          <img src="img/aparicao.png" alt="Folia · Instante dois" />
+          <img src="img/aparicao-folia.jpg" alt="Folia · Instante três" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 — Ocupação -->
+    <article class="obra flip reveal">
+      <div class="obra-meta">
+        <div class="obra-num">17</div>
+        <div class="obra-kind">Exposição coletiva</div>
+        <div class="obra-year">2024</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title">Manifesto <em>Catiço</em></h3>
+        <p class="obra-desc">Ocupação do Espaço Hélio Oiticica. Corpo que atravessa o museu. O que o terreiro ensina às paredes brancas. Coletivo que pensa presença como ato político e espiritual.</p>
+        <div class="obra-img wide">
+          <img src="img/exposicao.jpg" alt="Manifesto Catiço · Ocupação 2024" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2025 — Ritual -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">18–20</div>
+        <div class="obra-kind">Série: Travessia</div>
+        <div class="obra-year">2025</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title"><em>Ritual</em> — três estados</h3>
+        <p class="obra-desc">Contenção. Movimento. Dissolução. O corpo passando por três etapas de um mesmo ritual. O que fica é o rastro, a marca no chão, a lembrança que pulsa.</p>
+        <div class="obra-grid cols-3">
+          <img src="img/ritual-1.png" alt="Ritual · Estado um: contenção" />
+          <img src="img/ritual-2.png" alt="Ritual · Estado dois: dança" />
+          <img src="img/ritual-3.png" alt="Ritual · Estado três: vento" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2025 — Studio -->
+    <article class="obra flip reveal">
+      <div class="obra-meta">
+        <div class="obra-num">21</div>
+        <div class="obra-kind">Documentação</div>
+        <div class="obra-year">2025</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title">Espaço de <em>trabalho</em></h3>
+        <p class="obra-desc">O estúdio como extensão do corpo. Onde a pesquisa habita em gesto, matéria e escrita. O que se faz sozinho antes de se apresentar ao mundo.</p>
+        <div class="obra-img wide">
+          <img src="img/studio.jpg" alt="Studio · Espaço de trabalho" />
+        </div>
+      </div>
+    </article>
+
+    <!-- 2025 — Retrato 2 -->
+    <article class="obra reveal">
+      <div class="obra-meta">
+        <div class="obra-num">22</div>
+        <div class="obra-kind">Retrato</div>
+        <div class="obra-year">2025</div>
+      </div>
+      <div class="obra-body">
+        <h3 class="obra-title">Retrato <em>segundo</em></h3>
+        <p class="obra-desc">Outro instante. Outra luz. Outro modo de habitar o visível. O corpo que aparece, novamente, em presença renovada.</p>
+        <div class="obra-img tall">
+          <img src="img/retrato2.jpg" alt="Retrato segundo · 2025" />
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Citação -->
+<section class="citacao">
+  <div class="citacao-inner">
+    <div class="citacao-mark">— palavra herdada</div>
+    <p class="citacao-text">A ancestralidade não é o que <em>ficou para trás.</em> É o que caminha à frente, abrindo o passo.</p>
+    <div class="citacao-attr">Liège Santos</div>
+  </div>
+</section>
+
+<!-- Arquivo -->
+<section class="section" id="arquivo">
+  <div class="section-head">
+    <div class="section-num">§ Arquivo</div>
+    <h2 class="section-title">Exposições &amp; <em>publicações.</em></h2>
+  </div>
+  <ul class="arquivo-list">
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2026</div>
+      <div class="arquivo-title"><em>Aparição como método</em> — 2ª edição ampliada</div>
+      <div class="arquivo-kind">Livro</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2025</div>
+      <div class="arquivo-title">Folia — exposição individual | <em>Galeria Espaço</em></div>
+      <div class="arquivo-kind">Exposição</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2025</div>
+      <div class="arquivo-title">Corpo que aparece, corpo que <em>riscou o ponto</em></div>
+      <div class="arquivo-kind">Ensaio</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2024</div>
+      <div class="arquivo-title">Teso — performance e videoinstalação | <em>MAM Rio</em></div>
+      <div class="arquivo-kind">Performance</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2024</div>
+      <div class="arquivo-title">Manifesto Catiço | <em>Ocupação Hélio Oiticica</em></div>
+      <div class="arquivo-kind">Exposição coletiva</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2024</div>
+      <div class="arquivo-title">Falo — intervenção | coletiva <em>"Pano de fundo"</em></div>
+      <div class="arquivo-kind">Instalação</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2023</div>
+      <div class="arquivo-title">Ponteiro — série fotográfica em <em>ritmo triplo</em></div>
+      <div class="arquivo-kind">Fotografia</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2023</div>
+      <div class="arquivo-title">Curadoria | <em>"O que o terreiro ensina ao museu"</em></div>
+      <div class="arquivo-kind">Ciclo de conversas</div>
+    </li>
+    <li class="arquivo-item reveal">
+      <div class="arquivo-year">2022</div>
+      <div class="arquivo-title">Pesquisa de doutorado | <em>corpo, escrita, aparição</em></div>
+      <div class="arquivo-kind">Acadêmico</div>
+    </li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer id="contato">
+  <div class="footer-inner">
+    <div class="footer-mark" style="font-size: 53.2667px; width: 308.483px"><em>Liège</em><br>Santos.</div>
+    <div class="footer-col">
+      <h5>Escuta</h5>
+      <ul>
+        <li><a href="mailto:liegesantos@gmail.com">liegesantos@gmail.com</a></li>
+        <li><a href="https://w.app/apbwd4">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/liege_santos">@liege_santos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Visita</h5>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#obras">Obras</a></li>
+        <li><a href="#arquivo">Arquivo</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© MMXXVI · Liège Santos</span>
+    <span>Rio de Janeiro</span>
+  </div>
+</footer>
+
 <script>
-  // Theme Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const body = document.body;
-  
-  themeToggle.addEventListener('click', () => {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-  });
-  
-  // Load saved theme
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) body.setAttribute('data-theme', savedTheme);
+// Nav scroll state + active link
+(function(){
+  const nav = document.getElementById('topNav');
+  const links = document.querySelectorAll('.nav-items a, .mobile-menu a');
+  const sectionIds = ['sobre','obras','arquivo','contato'];
 
-  // Sidebar Active State on Scroll
-  const sections = document.querySelectorAll('section, footer');
-  const navLinks = document.querySelectorAll('.nav-items a');
+  function onScroll(){
+    const y = window.scrollY;
+    if (y > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= (sectionTop - 100)) {
-        current = section.getAttribute('id');
+    let current = sectionIds[0];
+    const probe = y + window.innerHeight * 0.4;
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= probe) current = id;
+    }
+    links.forEach(a => {
+      const href = a.getAttribute('href');
+      a.classList.toggle('active', href === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Mobile menu
+(function(){
+  const btn = document.getElementById('navMobileBtn');
+  const menu = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('mobileMenuClose');
+  if (!btn) return;
+  btn.addEventListener('click', () => menu.classList.add('open'));
+  closeBtn.addEventListener('click', () => menu.classList.remove('open'));
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => menu.classList.remove('open'))
+  );
+})();
+
+// Reveal on scroll
+(function(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
     });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
+// Photo modal — event delegation for any photo click
+(function(){
+  const modal = document.getElementById('photoModal');
+  const backdrop = document.getElementById('modalBackdrop');
+  const modalImg = document.getElementById('modalImg');
+  const modalClose = document.getElementById('modalClose');
+  const caption = document.getElementById('modalCaption');
 
-  // Smooth Scroll for Nav Links
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  function openModal(img) {
+    modalImg.src = img.src;
+    modalImg.alt = img.alt || '';
+    caption.textContent = img.alt || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Delegação: qualquer img dentro de .obra-img ou .obra-grid
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.obra-img img, .obra-grid > img');
+    if (img) {
       e.preventDefault();
-      const targetId = link.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Gallery Logic
-  let galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-  const overlay = document.getElementById('overlay');
-  const overlayImg = document.getElementById('overlayImg');
-  const overlayTitle = document.getElementById('overlayTitle');
-  const overlayYear = document.getElementById('overlayYear');
-  const closeOverlay = document.getElementById('closeOverlay');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  
-  let currentIndex = 0;
-  let visibleItems = galleryItems;
-
-  function updateVisibleItems() {
-    visibleItems = galleryItems.filter(item => !item.classList.contains('hidden'));
-  }
-
-  function openOverlay(index) {
-    currentIndex = index;
-    const item = visibleItems[index];
-    if (!item) return;
-    
-    // Smooth transition for image swap
-    overlayImg.style.opacity = '0';
-    setTimeout(() => {
-      overlayImg.src = item.getAttribute('data-src');
-      overlayTitle.textContent = item.getAttribute('data-title');
-      overlayYear.textContent = item.getAttribute('data-year');
-      overlayImg.onload = () => {
-        overlayImg.style.opacity = '1';
-      };
-    }, 200);
-
-    overlay.classList.add('active');
-    body.style.overflow = 'hidden';
-  }
-
-  function closeOverlayFunc() {
-    overlay.classList.remove('active');
-    overlayImg.classList.remove('zoomed');
-    body.style.overflow = 'auto';
-  }
-
-  function nextImg() {
-    currentIndex = (currentIndex + 1) % visibleItems.length;
-    openOverlay(currentIndex);
-  }
-
-  function prevImg() {
-    currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
-    openOverlay(currentIndex);
-  }
-
-  function setupGalleryListeners() {
-    galleryItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const currentVisibleIndex = visibleItems.indexOf(item);
-        if (currentVisibleIndex !== -1) {
-          openOverlay(currentVisibleIndex);
-        }
-      });
-    });
-  }
-
-  setupGalleryListeners();
-  updateVisibleItems();
-
-  // Filter Logic
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      
-      galleryItems.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-      
-      updateVisibleItems();
-    });
-  });
-
-  closeOverlay.addEventListener('click', closeOverlayFunc);
-  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImg(); });
-  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImg(); });
-  
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay || e.target.classList.contains('overlay-img-container')) {
-      closeOverlayFunc();
+      openModal(img);
     }
   });
 
-  overlayImg.addEventListener('click', (e) => {
-    e.stopPropagation();
-    overlayImg.classList.toggle('zoomed');
-  });
-
+  modalClose.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => {
-    if (!overlay.classList.contains('active')) return;
-    if (e.key === 'Escape') closeOverlayFunc();
-    if (e.key === 'ArrowRight') nextImg();
-    if (e.key === 'ArrowLeft') prevImg();
+    if (e.key === 'Escape') closeModal();
   });
+})();
 </script>
 
 </body>
